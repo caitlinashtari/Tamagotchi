@@ -32,6 +32,12 @@ describe(Tamagotchi) do
       my_pet.time_passes(1)
       expect(my_pet.food_level()).to(eq(9))
     end
+
+    it('decreases the amout of sleep the Tamagotchi has gotten by 1') do
+      my_pet = Tamagotchi.new('dumbo')
+      my_pet.time_passes(1)
+      expect(my_pet.sleep_level()).to(eq(9))
+    end
   end
 
 

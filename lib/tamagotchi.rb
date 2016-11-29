@@ -32,13 +32,13 @@ class Tamagotchi
     end
   end
 
-  define_method(:set_food_level) do |level|
-    @food_level = level
+  define_method(:set_food_level) do |current_level|
+    @food_level = current_level
   end
 
   define_method(:time_passes) do |time_passed|
-    @food_level -= time_passed 
-
+    @food_level -= time_passed
+    @sleep_level -= time_passed
   end
 
 
