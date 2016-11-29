@@ -39,7 +39,10 @@ class Tamagotchi
   define_method(:time_passes) do |time_passed|
     @food_level -= time_passed
     @sleep_level -= time_passed
+    @activity_level -= time_passed
   end
+
+
 
 
 end
