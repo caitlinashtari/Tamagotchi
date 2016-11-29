@@ -15,7 +15,13 @@ class Tamagotchi
   define_method(:is_alive) do
     if @food_level > 0 and @sleep_level > 0 and @activity_level > 0
       true
+    else
+      false
     end
+  end
+
+  define_method(:set_food_level) do
+    @food_level = 0
   end
 
 end
