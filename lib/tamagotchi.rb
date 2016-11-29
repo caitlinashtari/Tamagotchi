@@ -6,6 +6,7 @@ class Tamagotchi
     @food_level = 10
     @sleep_level = 10
     @activity_level = 10
+    @time = Time.now.to_i
   end
 
   define_method(:name) do
@@ -24,6 +25,13 @@ class Tamagotchi
     @activity_level
   end
 
+  define_method(:time_passes) do
+    current_time = (Time.now.to_i - @time)/60
+    @food_level -= current_time
+    @sleep_level -= current_time
+    @activity_level -= current_time
+  end
+
   define_method(:is_alive) do
     if @food_level > 0 and @sleep_level > 0 and @activity_level > 0
       true
@@ -36,11 +44,7 @@ class Tamagotchi
     @food_level = current_level
   end
 
-  define_method(:time_passes) do |time_passed|
-    @food_level -= time_passed
-    @sleep_level -= time_passed
-    @activity_level -= time_passed
-  end
+
 
   define_method(:feed) do
     @food_level += 1
