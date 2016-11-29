@@ -42,6 +42,14 @@ class Tamagotchi
     @activity_level -= time_passed
   end
 
+  define_method(:feed) do
+    @food_level += 1
+  end
+
+  define_method(:add_sleep) do
+    @sleep_level += 1
+  end
+
 
 
 
