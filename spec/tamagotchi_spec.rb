@@ -62,4 +62,12 @@ describe(Tamagotchi) do
     end
   end
 
+  describe('#play') do
+    it('increases activity_level by 1') do
+      my_pet = Tamagotchi.new('dumbo')
+      my_pet.play()
+      expect(my_pet.activity_level()).to(eq(11))
+    end
+  end
+
 end

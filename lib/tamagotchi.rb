@@ -50,6 +50,14 @@ class Tamagotchi
     @sleep_level += 1
   end
 
+  define_method(:play) do
+    @activity_level += 1
+  end
+
+
+
+
+
 
 
 
