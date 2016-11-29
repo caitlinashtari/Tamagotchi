@@ -29,19 +29,19 @@ describe(Tamagotchi) do
   describe('#time_passes') do
     it('decreases the amount of food the Tamagotchi has left by 1') do
       my_pet = Tamagotchi.new('dumbo')
-      my_pet.time_passes(1)
+      my_pet.time_passes()
       expect(my_pet.food_level()).to(eq(9))
     end
 
     it('decreases the amout of sleep the Tamagotchi has gotten by 1') do
       my_pet = Tamagotchi.new('dumbo')
-      my_pet.time_passes(1)
+      my_pet.time_passes()
       expect(my_pet.sleep_level()).to(eq(9))
     end
 
     it('decreases the amount of activity the Tamagotchi has gotten by 1') do
       my_pet = Tamagotchi.new('dumbo')
-      my_pet.time_passes(1)
+      my_pet.time_passes()
       expect(my_pet.activity_level()).to(eq(9))
     end
   end
@@ -55,7 +55,7 @@ describe(Tamagotchi) do
   end
 
   describe('#add_sleep') do
-    it('increases sleep_level by 1') do 
+    it('increases sleep_level by 1') do
       my_pet = Tamagotchi.new('dumbo')
       my_pet.add_sleep()
       expect(my_pet.sleep_level()).to(eq(11))
