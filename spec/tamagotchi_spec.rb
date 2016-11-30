@@ -2,6 +2,9 @@ require('rspec')
 require('tamagotchi')
 
 describe(Tamagotchi) do
+  before() do
+    Tamagotchi.clear()
+  end
   describe("#initialize") do
     it("sets the name and life levels of a new Tamagotchi") do
       my_pet = Tamagotchi.new("dumbo")
@@ -83,5 +86,31 @@ describe(Tamagotchi) do
       expect(Tamagotchi.all()).to(eq([test_tamagotchi]))
     end
   end
+
+  describe(".clear") do
+    it("empties out all of the saved tamagotchis") do
+      Tamagotchi.new("Dumbo").save()
+      Tamagotchi.clear()
+      expect(Tamagotchi.all()).to(eq([]))
+    end
+  end
+
+  describe("#id") do
+    it("returns the id of the tamagotchis") do
+      test_tamagotchi = Tamagotchi.new("Dumbo")
+      test_tamagotchi.save()
+      expect(test_tamagotchi.id()).to(eq(1))
+    end
+  end
+
+  describe(".find") do
+  it("returns a tamagotchi by its id number") do
+    test_tamagotchi = Tamagotchi.new('Dumbo')
+    test_tamagotchi.save()
+    test_tamagotchi2 = Tamagotchi.new('Slumbo')
+    test_tamagotchi2.save()
+    expect(Tamagotchi.find(test_tamagotchi.id())).to(eq(test_tamagotchi))
+  end
+end
 
 end

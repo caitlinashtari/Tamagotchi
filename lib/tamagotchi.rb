@@ -7,6 +7,7 @@ class Tamagotchi
     @sleep_level = 10
     @activity_level = 10
     @time = Time.now.to_i
+    @id = @@tamagotchi_levels.length().+(1)
   end
 
   define_method(:name) do
@@ -23,6 +24,10 @@ class Tamagotchi
 
   define_method(:activity_level) do
     @activity_level
+  end
+
+  define_method(:id) do
+    @id
   end
 
   define_method(:time_passes) do |current_time|
@@ -65,8 +70,19 @@ class Tamagotchi
    @@tamagotchi_levels.push(self)
  end
 
+ define_singleton_method(:clear) do
+    @@tamagotchi_levels = []
+  end
 
-
+  define_singleton_method(:find) do |identification|
+      found_tamagotchi = nil
+      @@tamagotchi_levels.each() do |tamagotchi|
+        if tamagotchi.id().eql?(identification.to_i())
+          found_tamagotchi = tamagotchi
+        end
+      end
+      found_tamagotchi
+    end
 
 
 
