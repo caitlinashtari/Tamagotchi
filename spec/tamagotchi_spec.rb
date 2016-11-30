@@ -76,4 +76,12 @@ describe(Tamagotchi) do
     end
   end
 
+  describe("#save") do
+    it("adds a tamagotchi to the array of saved tamagotchis") do
+      test_tamagotchi = Tamagotchi.new('Dumbo')
+      test_tamagotchi.save()
+      expect(Tamagotchi.all()).to(eq([test_tamagotchi]))
+    end
+  end
+
 end

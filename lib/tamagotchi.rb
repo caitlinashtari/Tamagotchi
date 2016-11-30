@@ -61,6 +61,10 @@ class Tamagotchi
     @@tamagotchi_levels
   end
 
+  define_method(:save) do
+   @@tamagotchi_levels.push(self)
+ end
+
 
 
 
