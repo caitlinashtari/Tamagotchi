@@ -25,8 +25,7 @@ class Tamagotchi
     @activity_level
   end
 
-  define_method(:time_passes) do
-    current_time = (Time.now.to_i - @time)/60
+  define_method(:time_passes) do |current_time|
     @food_level -= current_time
     @sleep_level -= current_time
     @activity_level -= current_time
@@ -56,6 +55,10 @@ class Tamagotchi
 
   define_method(:play) do
     @activity_level += 1
+  end
+
+  define_singleton_method(:all) do
+    @@tamagotchi_levels
   end
 
 
